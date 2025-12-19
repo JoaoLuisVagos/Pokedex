@@ -151,7 +151,8 @@ class Pokedex {
         } else {
             this.pokemonFiltrado = this.todosPokemon.filter(pokemon =>
                 pokemon.name.toLowerCase().includes(this.termoBusca) ||
-                pokemon.id.toString().includes(this.termoBusca)
+                pokemon.id.toString().includes(this.termoBusca) ||
+                pokemon.types.some(tipo => tipo.toLowerCase().includes(this.termoBusca))
             );
         }
 

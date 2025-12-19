@@ -1,0 +1,611 @@
+:root {
+    --primary-color: #dc0a0a;
+    --secondary-color: #ffde00;
+    --dark-color: #333333;
+    --light-color: #f5f5f5;
+    --text-color: #333;
+    --border-color: #ddd;
+    --type-plant: #78c850;
+    --type-poison: #a040a0;
+    --type-fire: #f08030;
+    --type-water: #6890f0;
+    --type-flying: #a890f0;
+    --type-bug: #a8b820;
+    --type-normal: #a8a878;
+    --type-electric: #f8d030;
+    --type-ground: #e0c068;
+    --type-fairy: #ee99ac;
+    --type-fighting: #c03028;
+    --type-psychic: #f85888;
+    --type-rock: #b8a038;
+    --type-ghost: #705898;
+    --type-ice: #98d8d8;
+    --type-dragon: #7038f8;
+    --type-dark: #705848;
+    --type-steel: #b8b8d0;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    --border-radius: 0.5rem;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-color);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+input {
+    font-family: inherit;
+}
+
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-sm) 0;
+    sticky: top;
+    z-index: 100;
+}
+
+.header-content {
+    
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-sm);
+}
+
+.logo {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 0px var(--secondary-color);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--text-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-bottom: 3px solid transparent;
+    transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+
+.main-content {
+    flex: 1;
+    padding: var(--spacing-xl) var(--spacing-sm);
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+.search-section {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid var(--border-color);
+    border-radius: 2rem;
+    padding: 0.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+    transition: var(--transition);
+}
+
+.search-container:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(220, 10, 10, 0.1);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    background: none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.search-btn {
+    background: none;
+    padding: 0.5rem 1rem;
+    color: var(--primary-color);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    color: var(--secondary-color);
+}
+
+
+.pokemon-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.pokemon-card {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.pokemon-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+    min-height: 2.5rem;
+    gap: var(--spacing-xs);
+}
+
+.pokemon-type {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    margin-right: 0.5rem;
+    white-space: nowrap;
+}
+
+.pokemon-id {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.pokemon-image-container {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(220, 10, 10, 0.05), rgba(255, 222, 0, 0.05));
+    border-radius: var(--border-radius);
+}
+
+.pokemon-image {
+    max-width: 100%;
+    max-height: 120px;
+    width: auto;
+    height: auto;
+}
+
+.pokemon-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-xs);
+    text-transform: capitalize;
+}
+
+
+.type-plant { background-color: var(--type-plant); }
+.type-poison { background-color: var(--type-poison); }
+.type-fire { background-color: var(--type-fire); }
+.type-water { background-color: var(--type-water); }
+.type-flying { background-color: var(--type-flying); }
+.type-bug { background-color: var(--type-bug); }
+.type-normal { background-color: var(--type-normal); }
+.type-electric { background-color: var(--type-electric); }
+.type-ground { background-color: var(--type-ground); }
+.type-fairy { background-color: var(--type-fairy); }
+.type-fighting { background-color: var(--type-fighting); }
+.type-psychic { background-color: var(--type-psychic); }
+.type-rock { background-color: var(--type-rock); }
+.type-ghost { background-color: var(--type-ghost); }
+.type-ice { background-color: var(--type-ice); }
+.type-dragon { background-color: var(--type-dragon); }
+.type-dark { background-color: var(--type-dark); }
+.type-steel { background-color: var(--type-steel); }
+
+
+.loading-indicator,
+.no-results {
+    text-align: center;
+    padding: var(--spacing-xl);
+    font-size: 1.1rem;
+    color: #999;
+}
+
+.loading-indicator.hidden,
+.no-results.hidden {
+    display: none;
+}
+
+.spinner {
+    border: 4px solid var(--light-color);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto var(--spacing-md);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.pagination-section {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+    width: 100%;
+}
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    justify-content: center;
+}
+
+.pagination-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: darken(#dc0a0a, 10%);
+    transform: scale(1.05);
+}
+
+.pagination-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.pagination-info {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-info .page-numbers {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-info .ellipsis {
+    color: #999;
+    padding: 0 0.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-number {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    background-color: white;
+    border: 2px solid var(--border-color);
+}
+
+.page-number:hover {
+    border-color: var(--primary-color);
+}
+
+.page-number.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.footer {
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-sm);
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: var(--spacing-sm);
+    }
+
+    .main-content {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .header-content {
+        padding: 0 var(--spacing-md);
+    }
+
+    .nav {
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: var(--spacing-sm);
+    }
+
+    .main-content {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .header {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-sm);
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .nav {
+        width: 100%;
+        justify-content: center;
+        gap: var(--spacing-md);
+    }
+
+    .search-container {
+        max-width: 100%;
+    }
+
+    .search-input {
+        font-size: 16px;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .pagination-container {
+        gap: var(--spacing-sm);
+    }
+
+    .pagination-btn {
+        padding: 0.6rem 1rem;
+    }
+
+    .page-number {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .pokemon-card {
+        padding: var(--spacing-sm);
+    }
+
+    .search-section {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .footer {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+}
+@media (max-width: 479px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .main-content {
+        padding: var(--spacing-sm) var(--spacing-xs);
+    }
+
+    .header-content {
+        gap: var(--spacing-sm);
+    }
+
+    .nav {
+        gap: var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+
+    .pokemon-card {
+        padding: 0.75rem;
+    }
+
+    .pokemon-name {
+        font-size: 1rem;
+    }
+
+    .pokemon-image-container {
+        min-height: 100px;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .pokemon-image {
+        max-height: 100px;
+    }
+
+    .pagination-container {
+        gap: 0.5rem;
+    }
+
+    .pagination-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .page-number {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.8rem;
+    }
+
+    .footer {
+        font-size: 0.8rem;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --light-color: #1e1e1e;
+        --text-color: #e0e0e0;
+        --border-color: #444;
+    }
+
+    body {
+        background-color: #121212;
+        color: var(--text-color);
+    }
+
+    .pokemon-card,
+    .search-container {
+        background-color: #2a2a2a;
+    }
+
+    .header {
+        background-color: #1e1e1e;
+    }
+}
+
+#pageNumbers,
+.pagination-info .page-numbers {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: var(--spacing-sm) !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.page-number {
+    display: inline-flex !important;
+    width: 2.4rem !important;
+    height: 2.4rem !important;
+    min-width: 2.2rem !important;
+}
+
